@@ -11,3 +11,9 @@ This change allows the following setup for my Nano Goblin:
 * SoftSerial 2 - RunCam serial camera control
 
 UART2 is not usable because it was replaced with a softserial port. This was done because the hardware UART is inverted for SBUS.
+
+# Instructions to compile
+
+* git clone https://github.com/PaulWieland/inav.git
+* cd inav
+* make TARGET=MATEKF405
