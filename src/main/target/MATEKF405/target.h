@@ -15,10 +15,15 @@
  * along with Cleanflight.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* Then you can define
- * PA8  / S6  as Softserial1 TX & RX,
- * PA15 / S5  as Softserial2_TX,
- * PA3  / RX2 as Softserial2_RX, in target.h
+/* This modification was made so that there would be 4.5 UARTS available on the Matek F405 Mini 
+ * Modification to softserial as follows:
+ * PA8  / S6  as Softserial1 TX & RX
+ * PA15 / S5  as Softserial2_TX
+ * PA3  / RX2 as Softserial2_RX
+ *
+ * Softserial 1 can now be used for Smart Audio
+ * Softserial 2 can now be used for RunCam control
+ * Three hardware UARTS (1, 3, 4) still functional
  */
 
 #pragma once
@@ -121,12 +126,12 @@
 #define UART5_TX_PIN            PC12
 
 #define USE_SOFTSERIAL1
-#define SOFTSERIAL_1_RX_PIN      PA8  //S6
+#define SOFTSERIAL_1_RX_PIN      PA8  //S6 <- Smart Audio
 #define SOFTSERIAL_1_TX_PIN      PA8  //S6
 
 #define USE_SOFTSERIAL2
-#define SOFTSERIAL_2_RX_PIN      PA3  //S6
-#define SOFTSERIAL_2_TX_PIN      PA15 //S5
+#define SOFTSERIAL_2_RX_PIN      PA3  //RX2 <- RunCam TX
+#define SOFTSERIAL_2_TX_PIN      PA15 //S5  <- RunCam RX
 
 #define SERIAL_PORT_COUNT       8
 
