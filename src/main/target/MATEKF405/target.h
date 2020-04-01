@@ -15,6 +15,12 @@
  * along with Cleanflight.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* Then you can define
+ * PA8  / S6  as Softserial1 TX & RX,
+ * PA15 / S5  as Softserial2_TX,
+ * PA3  / RX2 as Softserial2_RX, in target.h
+ */
+
 #pragma once
 
 #define TARGET_BOARD_IDENTIFIER "MKF4"
@@ -99,8 +105,8 @@
 #define UART1_TX_PIN            PA9
 
 #define USE_UART2
-#define UART2_RX_PIN            PA8  //S6 for serial camera control (formerly PA3)
-#define UART2_TX_PIN            PA15 //S5 (formerly PA2)
+#define UART2_RX_PIN            PA3
+#define UART2_TX_PIN            PA2
 
 #define USE_UART3
 #define UART3_RX_PIN            PC11
@@ -115,14 +121,14 @@
 #define UART5_TX_PIN            PC12
 
 #define USE_SOFTSERIAL1
-#define SOFTSERIAL_1_RX_PIN      PD2 // Unusable UART5 (formerly PA1  //RX4)
-#define SOFTSERIAL_1_TX_PIN      PA3 //R2 for smart audio (formerly PA0  //TX4 )
+#define SOFTSERIAL_1_RX_PIN      PA8  //S6
+#define SOFTSERIAL_1_TX_PIN      PA8  //S6
 
-// #define USE_SOFTSERIAL2
-// #define SOFTSERIAL_2_RX_PIN      PA2  //TX2
-// #define SOFTSERIAL_2_TX_PIN      PA2  //TX2
+#define USE_SOFTSERIAL2
+#define SOFTSERIAL_2_RX_PIN      PA3  //S6
+#define SOFTSERIAL_2_TX_PIN      PA15 //S5
 
-#define SERIAL_PORT_COUNT       7
+#define SERIAL_PORT_COUNT       8
 
 #define DEFAULT_RX_TYPE         RX_TYPE_SERIAL
 #define SERIALRX_PROVIDER       SERIALRX_SBUS
@@ -190,8 +196,8 @@
 #define DEFAULT_FEATURES        (FEATURE_OSD | FEATURE_CURRENT_METER | FEATURE_VBAT | FEATURE_TELEMETRY )
 #define CURRENT_METER_SCALE   179
 
-// #define USE_LED_STRIP
-// #define WS2811_PIN                      PA15 // S5 pad for iNav
+#define USE_LED_STRIP
+#define WS2811_PIN                      PA15 // S5 pad for iNav
 
 #define USE_SPEKTRUM_BIND
 #define BIND_PIN                PA3 //  RX2
